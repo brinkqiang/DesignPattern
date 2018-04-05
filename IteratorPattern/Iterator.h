@@ -1,7 +1,8 @@
 #pragma once
 #include "Aggregate.h"
 
-class Iterator {
+class Iterator
+{
 public:
     Iterator();
     virtual ~Iterator();
@@ -11,9 +12,10 @@ public:
     virtual Object CurrentItem() = 0;
 };
 
-class ConcreteIterator :public Iterator {
+class ConcreteIterator : public Iterator
+{
 public:
-    ConcreteIterator(Aggregate *ag, int idx /* = 0 */);
+    ConcreteIterator( Aggregate* ag, int idx /* = 0 */ );
 
     void First();
     void Next();

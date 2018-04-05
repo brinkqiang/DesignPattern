@@ -1,75 +1,91 @@
 #include <iostream>
 using namespace std;
 
-class Handle {
+class Handle
+{
 public:
     virtual ~Handle() { }
 
     virtual void HandleRequest() = 0;
 
-    void SetSuccessor(Handle *succ) {
+    void SetSuccessor( Handle* succ )
+    {
         _succ = succ;
     }
 
-    Handle* GetSuccessor()const {
+    Handle* GetSuccessor()const
+    {
         return _succ;
     }
 
 protected:
-    Handle() { _succ = nullptr; }
+    Handle()
+    {
+        _succ = nullptr;
+    }
 
-    Handle(Handle* succ) {
+    Handle( Handle* succ )
+    {
         _succ = succ;
     }
 private:
     Handle* _succ;
 };
 
-class ConcreteHandleA :public Handle {
+class ConcreteHandleA : public Handle
+{
 public:
     ConcreteHandleA() { }
 
-    ConcreteHandleA(Handle* succ)
-        :Handle(succ) {
+    ConcreteHandleA( Handle* succ )
+        : Handle( succ )
+    {
     }
 
-    void HandleRequest() {
-        if (this->GetSuccessor() != 0) {
+    void HandleRequest()
+    {
+        if ( this->GetSuccessor() != 0 )
+        {
             cout << "ConcreteHandleA--Successor" << endl;
             GetSuccessor()->HandleRequest();
         }
-        else {
+        else
+        {
             cout << "ConcreteHandleA::HandleRequest" << endl;
         }
     }
 };
 
-class ConcreteHandleB :public Handle {
+class ConcreteHandleB : public Handle
+{
 public:
     ConcreteHandleB() { }
 
-    ConcreteHandleB(Handle* succ)
-        :Handle(succ) {
+    ConcreteHandleB( Handle* succ )
+        : Handle( succ )
+    {
     }
 
-    void HandleRequest() {
-        if (this->GetSuccessor() != 0) {
+    void HandleRequest()
+    {
+        if ( this->GetSuccessor() != 0 )
+        {
             cout << "ConcreteHandleB--Successor" << endl;
             GetSuccessor()->HandleRequest();
         }
-        else {
+        else
+        {
             cout << "ConcreteHandleB::HandleRequest" << endl;
         }
     }
 };
 
-int main() {
-    Handle *h1 = new ConcreteHandleA();
-    Handle *h2 = new ConcreteHandleB(h1);// or h1->SetSuccessor(h2);
+int main()
+{
+    Handle* h1 = new ConcreteHandleA();
+    Handle* h2 = new ConcreteHandleB( h1 ); // or h1->SetSuccessor(h2);
     h2->HandleRequest();
-
     delete h1;
     delete h2;
-
     return 0;
 }

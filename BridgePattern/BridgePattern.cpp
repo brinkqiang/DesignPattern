@@ -3,7 +3,8 @@ using namespace std;
 
 // Abstraction
 
-class Abstraction {
+class Abstraction
+{
 public:
     virtual void Operation() = 0;
     virtual ~Abstraction() { }
@@ -13,7 +14,8 @@ protected:
 
 // AbstractionImp
 
-class AbstractionImp :public Abstraction {
+class AbstractionImp : public Abstraction
+{
 public:
     virtual void Operation() = 0;
     virtual ~AbstractionImp() { }
@@ -21,39 +23,40 @@ protected:
     AbstractionImp() { }
 };
 
-class ConcreteAbstractionImp :public AbstractionImp {
+class ConcreteAbstractionImp : public AbstractionImp
+{
 public:
-    void Operation() {
+    void Operation()
+    {
         cout << "ConcreteAbstractionImp Operation..." << endl;
     }
 };
 
-class RefinedAbstraction :public Abstraction {
+class RefinedAbstraction : public Abstraction
+{
 public:
-    RefinedAbstraction(AbstractionImp *imp) {
+    RefinedAbstraction( AbstractionImp* imp )
+    {
         _imp = imp;
     }
-    void Operation() {
+    void Operation()
+    {
         _imp->Operation();
     }
 private:
-    AbstractionImp *_imp;
+    AbstractionImp* _imp;
 };
 
 
 
 
 
-int main() {
-
-    AbstractionImp *imp = new ConcreteAbstractionImp();
-
-    Abstraction *abs = new RefinedAbstraction(imp);
-
+int main()
+{
+    AbstractionImp* imp = new ConcreteAbstractionImp();
+    Abstraction* abs = new RefinedAbstraction( imp );
     abs->Operation();
-
     delete imp;
     delete abs;
-
     return 0;
 }

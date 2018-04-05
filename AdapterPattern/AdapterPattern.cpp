@@ -1,41 +1,46 @@
 #include <iostream>
 using namespace std;
 
-class Target {
+class Target
+{
 public:
-    virtual void Request() {
+    virtual void Request()
+    {
         cout << "Target::Request..." << endl;
     }
     virtual ~Target() { }
 };
 
-class Adaptee {
+class Adaptee
+{
 public:
-    void SpecificRequest() {
+    void SpecificRequest()
+    {
         cout << "Adaptee::SpecificRequest..." << endl;
     }
 };
 
-class Adapter :public Target, private Adaptee {
+class Adapter : public Target, private Adaptee
+{
 public:
-    Adapter(Adaptee* ade) {
+    Adapter( Adaptee* ade )
+    {
         _ade = ade;
     }
-    void Request() {
+    void Request()
+    {
         _ade->SpecificRequest();
     }
 private:
-    Adaptee *_ade;
+    Adaptee* _ade;
 };
 
-int main() {
-    Adaptee *adaptee = new Adaptee();
-    Target *adapter = new Adapter(adaptee);
-
+int main()
+{
+    Adaptee* adaptee = new Adaptee();
+    Target* adapter = new Adapter( adaptee );
     adapter->Request();
-
     delete adapter;
     delete adaptee;
-
     return 0;
 }

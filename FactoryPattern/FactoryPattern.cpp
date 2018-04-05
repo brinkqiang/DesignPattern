@@ -2,18 +2,22 @@
 
 // Product
 
-class Product {
+class Product
+{
 public:
     virtual ~Product() { }
     virtual void say() = 0;
 };
 
-class ConcreteProduct :public Product {
+class ConcreteProduct : public Product
+{
 public:
-    ConcreteProduct() {
+    ConcreteProduct()
+    {
         std::cout << "ConcreteProduct..." << std::endl;
     }
-    void say() {
+    void say()
+    {
         std::cout << "ConcreteProduct Say..." << std::endl;
     }
     ~ConcreteProduct() { }
@@ -21,7 +25,8 @@ public:
 
 // Factory
 
-class Factory {
+class Factory
+{
 public:
     virtual Product* CreateProduct() = 0;
     virtual ~Factory() { }
@@ -29,17 +34,20 @@ protected:
     Factory() { }
 };
 
-class ConcreteFactory :public Factory {
+class ConcreteFactory : public Factory
+{
 public:
-    ConcreteFactory() {
+    ConcreteFactory()
+    {
         std::cout << "ConcreteFactory..." << std::endl;
     }
 
-    ~ConcreteFactory() {
-
+    ~ConcreteFactory()
+    {
     }
 
-    Product* CreateProduct() {
+    Product* CreateProduct()
+    {
         return new ConcreteProduct();
     }
 
@@ -47,13 +55,12 @@ public:
 
 // Test
 
-int main() {
-    Factory *factory = new ConcreteFactory();
-    Product *product = factory->CreateProduct();
+int main()
+{
+    Factory* factory = new ConcreteFactory();
+    Product* product = factory->CreateProduct();
     product->say();
-
     delete factory;
     delete product;
-
     return 0;
 }

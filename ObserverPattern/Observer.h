@@ -6,9 +6,10 @@
 #include "Subject.h"
 using namespace std;
 
-class Observer {
+class Observer
+{
 public:
-    virtual void Update(Subject* sub) = 0;
+    virtual void Update( Subject* sub ) = 0;
     virtual void PrintInfo() = 0;
     virtual ~Observer();
 protected:
@@ -16,20 +17,21 @@ protected:
     string _st;
 };
 
-class ConcreteObserver :public Observer {
+class ConcreteObserver : public Observer
+{
 public:
     virtual Subject* GetSubject();
 
-    ConcreteObserver(Subject* sub);
+    ConcreteObserver( Subject* sub );
 
     ~ConcreteObserver();
 
-    void Update(Subject* sub);
+    void Update( Subject* sub );
 
     void PrintInfo();
 
 private:
-    Subject *_sub;
+    Subject* _sub;
 };
 
 #endif //OBSERVER_H

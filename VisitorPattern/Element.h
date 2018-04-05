@@ -2,19 +2,22 @@
 #include "Visitor.h"
 class Visitor;
 
-class Element {
+class Element
+{
 public:
     Element();
     virtual ~Element();
-    virtual void Accept(Visitor* vis) = 0;
+    virtual void Accept( Visitor* vis ) = 0;
 };
 
-class ConcreteElementA :public Element {
+class ConcreteElementA : public Element
+{
 public:
-    void Accept(Visitor* vis);
+    void Accept( Visitor* vis );
 };
 
-class ConcreteElementB :public Element {
+class ConcreteElementB : public Element
+{
 public:
-    void Accept(Visitor* vis);
+    void Accept( Visitor* vis );
 };

@@ -3,16 +3,19 @@ using namespace std;
 
 // Product
 
-class Product {
+class Product
+{
 public:
-    Product() {
+    Product()
+    {
         cout << "Product..." << endl;
     }
 };
 
 // Builder
 
-class Builder {
+class Builder
+{
 public:
     virtual void BuildPartA() = 0;
     virtual void BuildPartB() = 0;
@@ -21,53 +24,60 @@ public:
     virtual ~Builder() { }
 };
 
-class ConcreteBuilder :public Builder {
+class ConcreteBuilder : public Builder
+{
 public:
-    void BuildPartA() {
+    void BuildPartA()
+    {
         cout << "BuildPartA..." << endl;
     }
 
-    void BuildPartB() {
+    void BuildPartB()
+    {
         cout << "BuildPartB..." << endl;
     }
 
-    void BuildPartC() {
+    void BuildPartC()
+    {
         cout << "BuildPartC..." << endl;
     }
 
-    Product* GetProduct() {
+    Product* GetProduct()
+    {
         return new Product();
     }
 };
 
 // Director
 
-class Director {
+class Director
+{
 public:
-    Director(Builder* pBuilder) {
+    Director( Builder* pBuilder )
+    {
         _builer = pBuilder;
     }
 
-    void Construct() {
+    void Construct()
+    {
         _builer->BuildPartA();
         _builer->BuildPartB();
         _builer->BuildPartC();
     }
 
 private:
-    Builder *_builer;
+    Builder* _builer;
 };
 
 
-int main() {
+int main()
+{
     auto builder = new ConcreteBuilder();
-    auto director = new Director(builder);
+    auto director = new Director( builder );
     director->Construct();
     Product* product = builder->GetProduct();
-
     delete product;
     delete builder;
     delete director;
-
     return 0;
 }

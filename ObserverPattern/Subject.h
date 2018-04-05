@@ -9,14 +9,15 @@ class Observer;
 
 using namespace std;
 
-class Subject {
+class Subject
+{
 public:
-    virtual void SetState(const string& st) = 0;
+    virtual void SetState( const string& st ) = 0;
     virtual string GetState() = 0;
 
-    virtual void Attach(Observer* obv);
+    virtual void Attach( Observer* obv );
 
-    virtual void Detach(Observer* obv);
+    virtual void Detach( Observer* obv );
 
     virtual void Notify();
 
@@ -27,11 +28,12 @@ private:
     list<Observer*> _obvs;
 };
 
-class ConcreteSubject :public Subject {
+class ConcreteSubject : public Subject
+{
 public:
     string GetState();
 
-    void SetState(const string& st);
+    void SetState( const string& st );
 private:
     string _st;
 };

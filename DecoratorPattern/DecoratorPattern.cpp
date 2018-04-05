@@ -1,52 +1,59 @@
 #include <iostream>
 using namespace std;
 
-class Component {
+class Component
+{
 public:
     virtual void Operation() = 0;
     virtual ~Component() { }
 };
 
-class ConcreteComponent :public Component {
+class ConcreteComponent : public Component
+{
 public:
-    void Operation() {
+    void Operation()
+    {
         cout << "ConcreteComponent::Operation..." << endl;
     }
 };
 
-class Decorator {
+class Decorator
+{
 public:
     virtual void Operation() = 0;
     virtual void AddBehavior() = 0;
     virtual ~Decorator() { }
 };
 
-class ConcreteDecorator :public Decorator {
+class ConcreteDecorator : public Decorator
+{
 public:
-    ConcreteDecorator(Component *com) {
+    ConcreteDecorator( Component* com )
+    {
         _com = com;
     }
 
-    void AddBehavior() {
+    void AddBehavior()
+    {
         cout << "ConcreteDecorator::AddBehavior..." << endl;
     }
 
-    void Operation() {
+    void Operation()
+    {
         cout << "ConcreteDecorator::Operation..." << endl;
         AddBehavior();
         _com->Operation();
     }
 private:
-    Component *_com;
+    Component* _com;
 };
 
-int main() {
-    Component *con = new ConcreteComponent();
-    Decorator *dec = new ConcreteDecorator(con);
+int main()
+{
+    Component* con = new ConcreteComponent();
+    Decorator* dec = new ConcreteDecorator( con );
     dec->Operation();
-
     delete con;
     delete dec;
-
     return 0;
 }
