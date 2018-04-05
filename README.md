@@ -12,16 +12,20 @@
 
 # 编译
 
-## Visual Studio 2013(MSVC 12)
-使用 Visual Studio 导入项目即可编译
+## Windows or Linux or Mac OSX
+Windows 或 Linux 或 Mac OSX 环境使用 cmake 编译
 
-## Linux or Mac OSX
-Linux 或 Mac OSX 环境使用 cmake 编译
+首先去 https://cmake.org/download/ 下载cmake
 
-```bash
+Windows需要把cmake的bin目录设置进 环境变量 path里面
+
+Windows
+
 $ cd /path/to/project
-$ mkdir build
-$ cd build
-$ cmake ..
-$ make
-```
+$ build.bat
+
+Linux or Mac OSX
+
+$ cd /path/to/project
+$ sh build.sh
+
