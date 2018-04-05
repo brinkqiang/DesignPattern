@@ -29,4 +29,4 @@ Linux or Mac OSX
 
 $ cd /path/to/project
 
-$ ./build.sh
+$ sh build.sh
