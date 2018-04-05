@@ -28,4 +28,3 @@ Linux or Mac OSX
 
 $ cd /path/to/project
 $ sh build.sh
-
