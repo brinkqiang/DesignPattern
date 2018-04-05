@@ -15,13 +15,13 @@
 ## Visual Studio 2013(MSVC 12)
 使用 Visual Studio 导入项目即可编译
 
-## Linux or Mac OSX
-Linux 或 Mac OSX 环境使用 cmake 编译
+## Windows or Linux or Mac OSX
+Windows 或 Linux 或 Mac OSX 环境使用 cmake 编译
 
-```bash
+Windows
 $ cd /path/to/project
-$ mkdir build
-$ cd build
-$ cmake ..
-$ make
-```
+$ build.bat
+
+Linux or Mac OSX
+$ cd /path/to/project
+$ sh build.sh
