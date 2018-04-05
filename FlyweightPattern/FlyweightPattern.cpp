@@ -43,14 +43,15 @@ class FlyweightFactory
 public:
     Flyweight* GetFlyweight( std::string key )
     {
-		for (std::vector<Flyweight *>::iterator It = _flys.begin(); It != _flys.end(); It++)
-		{
-			if ((*It)->GetState() == key)
-			{
-				cout << "already created by users..." << endl;
-				return (*It);
-			}
-		}
+        for ( std::vector<Flyweight*>::iterator It = _flys.begin(); It != _flys.end(); It++ )
+        {
+            if ( ( *It )->GetState() == key )
+            {
+                cout << "already created by users..." << endl;
+                return ( *It );
+            }
+        }
+
         Flyweight* fn = new ConcreteFlyweight( key );
         _flys.push_back( fn );
         return fn;

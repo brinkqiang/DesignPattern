@@ -16,10 +16,10 @@ void Subject::Detach( Observer* obv )
 
 void Subject::Notify()
 {
-	for (list<Observer*>::iterator It = _obvs.begin(); It != _obvs.end(); ++It)
-	{
-		(*It)->Update(this);
-	}
+    for ( list<Observer*>::iterator It = _obvs.begin(); It != _obvs.end(); ++It )
+    {
+        ( *It )->Update( this );
+    }
 }
 
 Subject::~Subject() { }

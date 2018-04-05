@@ -14,13 +14,13 @@ public:
     virtual void OperationInterface( Context* ) = 0;
     virtual ~State() { }
 protected:
-	bool ChangeState(Context* con, State* st);
+    bool ChangeState( Context* con, State* st );
 };
 
 class ConcreteStateA : public State
 {
 public:
-	void OperationChangeState(Context* con);
+    void OperationChangeState( Context* con );
 
     void OperationInterface( Context* con )
     {
@@ -31,7 +31,7 @@ public:
 class ConcreteStateB : public State
 {
 public:
-	ConcreteStateB(){}
+    ConcreteStateB() {}
     void OperationChangeState( Context* con )
     {
         OperationInterface( con );
@@ -44,10 +44,10 @@ public:
     }
 };
 
-void ConcreteStateA::OperationChangeState(Context* con)
+void ConcreteStateA::OperationChangeState( Context* con )
 {
-	OperationInterface(con);
-	this->ChangeState(con, new ConcreteStateB());
+    OperationInterface( con );
+    this->ChangeState( con, new ConcreteStateB() );
 }
 
 class Context
@@ -78,9 +78,9 @@ private:
     State* _st;
 };
 
-bool State::ChangeState(Context* con, State* st)
+bool State::ChangeState( Context* con, State* st )
 {
-	return con->ChangeState(st);
+    return con->ChangeState( st );
 }
 
 int main()
