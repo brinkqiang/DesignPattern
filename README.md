@@ -20,11 +20,11 @@ Windows 或 Linux 或 Mac OSX 环境使用 cmake 编译
 Windows需要把cmake的bin目录设置进 环境变量 path里面
 
 Windows
-$ cd /path/to/project
 
+$ cd /path/to/project
 $ build.bat
 
 Linux or Mac OSX
-$ cd /path/to/project
 
+$ cd /path/to/project
 $ sh build.sh
