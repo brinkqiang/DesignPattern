@@ -21,7 +21,7 @@ public:
 protected:
     Handle()
     {
-        _succ = nullptr;
+        _succ = NULL;
     }
 
     Handle( Handle* succ )

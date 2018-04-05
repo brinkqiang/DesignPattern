@@ -29,10 +29,10 @@ public:
 
     void Operation()
     {
-        for ( auto com : _coms )
-        {
-            com->Operation();
-        }
+		for (std::vector<Component *>::iterator It = _coms.begin(); It != _coms.end(); ++It)
+		{
+			(*It)->Operation();
+		}
     }
 
     void Remove( Component* com )

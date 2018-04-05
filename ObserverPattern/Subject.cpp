@@ -8,7 +8,7 @@ void Subject::Attach( Observer* obv )
 
 void Subject::Detach( Observer* obv )
 {
-    if ( obv != nullptr )
+    if ( obv != NULL )
     {
         _obvs.remove( obv );
     }
@@ -16,10 +16,10 @@ void Subject::Detach( Observer* obv )
 
 void Subject::Notify()
 {
-    for ( auto obv : _obvs )
-    {
-        obv->Update( this );
-    }
+	for (list<Observer*>::iterator It = _obvs.begin(); It != _obvs.end(); ++It)
+	{
+		(*It)->Update(this);
+	}
 }
 
 Subject::~Subject() { }

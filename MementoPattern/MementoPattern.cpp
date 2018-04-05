@@ -31,13 +31,13 @@ class Originator
 public:
     Originator()
     {
-        _mt = nullptr;
+        _mt = NULL;
     }
 
     Originator( const string& st )
     {
         _st = st;
-        _mt = nullptr;
+        _mt = NULL;
     }
 
     Memento* CreateMemento()

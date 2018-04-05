@@ -19,7 +19,7 @@ ConcreteObserver::ConcreteObserver( Subject* sub )
 ConcreteObserver::~ConcreteObserver()
 {
     _sub->Detach( this );
-    //if (_sub != nullptr) {
+    //if (_sub != NULL) {
     //    delete _sub;
     //}
 }
