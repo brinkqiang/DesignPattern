@@ -14,7 +14,9 @@
 
 ## Windows or Linux or Mac OSX
 Windows 或 Linux 或 Mac OSX 环境使用 cmake 编译
+
 首先去 https://cmake.org/download/ 下载cmake
+
 Windows需要把cmake的bin目录设置进 环境变量 path里面
 
 Windows
