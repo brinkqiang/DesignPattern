@@ -31,6 +31,9 @@ set(PATTERNS
 
 macro(add_pattern PATTERN)
     include_directories(${PATTERN})
+
+    set(EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/bin/${CMAKE_SYSTEM_NAME})
+    set(LIBRARY_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/lib/${CMAKE_SYSTEM_NAME})
     file(GLOB_RECURSE PATTERN_FILES "${PATTERN}/*.cpp")
     add_executable(${PATTERN} ${PATTERN_FILES})
 endmacro(add_pattern)
