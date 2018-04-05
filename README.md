@@ -21,8 +21,10 @@ Windows需要把cmake的bin目录设置进 环境变量 path里面
 
 Windows
 $ cd /path/to/project
+
 $ build.bat
 
 Linux or Mac OSX
 $ cd /path/to/project
+
 $ sh build.sh
